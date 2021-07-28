@@ -1,4 +1,5 @@
-let asnwer = '';
+
+let answer = '';
 
 answer += `    8888888888  888    88888\n`;
 answer += `   88     88   88 88   88  88\n`;
@@ -12,4 +13,4 @@ answer += `88 8888 88 88   88  88888    8888\n`;
 answer += ` 888  888 888888888 88  88      88\n`;
 answer += `  88  88  88     88 88   88888888`;
 
-console.log(asnwer);
+console.log(answer);
