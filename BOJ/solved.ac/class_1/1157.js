@@ -16,6 +16,6 @@ for(let i = 0; i < input.length; i++) {
 
 const a = [1,2,3,4];
 const max = Math.max(...a)
-console.log(max);
+console.log(max);;
 
 // asddas 
