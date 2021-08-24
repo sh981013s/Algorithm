@@ -8,7 +8,7 @@ const studentNum = input[0];
 let das = Math.floor(studentNum / 12);
 
 if (studentNum % 12 !== 0) {
-    das += 1;
+    das += 1
 }
 
 console.log(das);
