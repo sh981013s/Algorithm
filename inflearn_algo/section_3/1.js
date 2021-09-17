@@ -5,13 +5,12 @@
     const fs = require('fs');
     const input = fs.readFileSync('input.txt').toString().trim().split('').map((x)=>x.toLowerCase());
 
-    const isSame = (x) => {
-        const size = x.length;
-        if(x[0] === x[size-1]) {
-            console.log("YES");
-        } else {
-            console.log("NO");
-        }
+    const isSame = x => {
+        const input = x.toString();
+        const back = x.reverse().toString();
+
+        const answer = input===back ? "YES" : "NO";
+        console.log(answer);
     }
 
     isSame(input);
