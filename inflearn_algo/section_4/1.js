@@ -24,6 +24,10 @@
         }
     }
 
+    // for(let [index, num] of nums.entries()) {
+    //     console.log(`index= ${index}, value= ${num}`);
+    // }
+
     console.log(realNum);
 
 
