@@ -1,82 +1,90 @@
-// // concat
+// concat
 
-// const arr1 = [1,2,3];
-// const arr2 = [4,5,6];
+const arr1 = [1, 2, 3, 0];
+const arr2 = [4, 5, 6];
 
-// const arr3 = arr1.find(x => x < 4);
+const arr3 = arr1.concat(arr2);
+console.log(arr3);
 
-// // find
+// find
 
-// const inventory = [
-//     {name: 'apples', quantity: 2},
-//     {name: 'bananas', quantity: 0},
-//     {name: 'cherries', quantity: 5}
-// ];
+const inventory = [
+	{ name: 'apples', quantity: 2 },
+	{ name: 'bananas', quantity: 0 },
+	{ name: 'cherries', quantity: 5 },
+	{ name: 'cherries', quantity: 3 },
+];
 
-// const result = inventory.find(fruit => fruit.name === 'cherries');
+const result = inventory.find((fruit) => fruit.name === 'cherries');
+const result2 = inventory.filter((fruit) => fruit.name === 'cherries');
 
-// // sort
+console.log(result);
 
-// // it sorts an array in according to "ASCII code"
+// sort
 
-// const fruit = ['banana', 'cherry', 'orange', 'apple']
+// it sorts an array in according to "ASCII code"
 
-// const sortResult = fruit.sort();
+const fruit = ['1', '2', '3', '4'];
 
-// // indexOf
+const sortResult = fruit.sort((a, b) => b - a);
 
-// const beasts = ['ant', 'bison', 'camel', 'duck', 'bison'];
+console.log(sortResult);
 
-// console.log(beasts.indexOf('bison'));
+// indexOf
 
-// console.log(beasts.indexOf('bison', 2)); //from index
+const beasts = ['ant', 'bison', 'camel', 'duck', 'bison'];
 
-// console.log(beasts.indexOf('cat'));
+console.log(beasts.indexOf('bison'));
 
+console.log(beasts.indexOf('bison', 2)); //from index
 
+console.log(beasts.indexOf('cat'));
 
-// const sample = [
-// 	{ name: 'beom', contents: 'hi' },
-// 	{ name: 'beom', contents: 'okay' },
-// 	{ name: 'seung', contents: 'yes' },
-// 	{ name: 'seung', contents: 'bye' },
-// 	{ name: 'beom', contents: 'okay' },
-// 	{ name: 'seung', contents: 'here' },
-// 	{ name: 'beom', contents: 'there' },
-// 	{ name: 'beom', contents: 'bye?' },
-// ];
+const sample = [
+	{ name: 'beom', contents: 'hi' },
+	{ name: 'beom', contents: 'okay' },
+	{ name: 'seung', contents: 'yes' },
+	{ name: 'seung', contents: 'bye' },
+	{ name: 'seung', contents: 'bye' },
+	{ name: 'seung', contents: 'bye' },
+	{ name: 'beom', contents: 'okay' },
+	{ name: 'seung', contents: 'here' },
+	{ name: 'beom', contents: 'there' },
+	{ name: 'beom', contents: 'bye?' },
+];
 
-// const sampleData = sample.reduce(
-// 	(acc, cur) => {
-// 		if (acc[acc.length - 1].name === cur.name) {
-// 			const popData = acc.pop();
-// 			if (typeof popData.contents === 'string') {
-// 				return [
-// 					...acc,
-// 					{
-// 						name: cur.name,
-// 						contents: [popData.contents, cur.contents],
-// 					},
-// 				];
-// 			} else {
-// 				return [
-// 					...acc,
-// 					{
-// 						name: cur.name,
-// 						contents: [
-// 							popData.contents[popData.contents.length - 1],
-// 							cur.contents,
-// 						],
-// 					},
-// 				];
-// 			}
-// 		} else {
-// 			return [...acc, cur];
-// 		}
-// 	},
-// 	[sample[0]]
-// );
+const sampleData = sample.reduce(
+	(acc, cur) => {
+		if (acc[acc.length - 1].name === cur.name) {
+			const popData = acc.pop();
+			if (typeof popData.contents === 'string') {
+				return [
+					...acc,
+					{
+						name: cur.name,
+						contents: [popData.contents, cur.contents],
+					},
+				];
+			} else {
+				return [
+					...acc,
+					{
+						name: cur.name,
+						contents: [
+							// popData.contents[popData.contents.length - 1],
+							...popData.contents,
+							cur.contents,
+						],
+					},
+				];
+			}
+		} else {
+			return [...acc, cur];
+		}
+	},
+	[sample[0]]
+);
 
-// // console.log(...sample);
-// console.log(sampleData);
-
+// console.log(...sample);
+console.log(sample);
+console.log(sampleData);
