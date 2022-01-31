@@ -1,7 +1,6 @@
-const input = `6 5 11`;
+const getMinNum = (str) => {
+  const inputArr = str.trim().split(" ").map(Number);
+  console.log(Math.min(...inputArr));
+};
 
-const nums = input.toString().trim().split(' ').map(Number);
-
-const answer = Math.min(...nums);
-
-console.log(answer);
+getMinNum("6 5 11");
