@@ -9,7 +9,6 @@ const bigger = (str) => {
       ans.push(numsArr[i]);
     }
   }
-
   console.log(ans.join(" "));
 };
 
