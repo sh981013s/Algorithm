@@ -1,56 +1,57 @@
 class Node {
-  constructor(value) {
-    this.value = value;
+  constructor(val) {
+    this.val = val;
     this.next = null;
   }
 }
 
 class Queue {
   constructor() {
+    this.size = 0;
     this.head = null;
     this.tail = null;
   }
 
-  enqueue(newValue) {
-    const newNode = new Node(newValue);
-    if (this.head === null) {
+  peek() {
+    return this.head.val;
+  }
+
+  enqueue(val) {
+    const newNode = new Node(val);
+    if (this.size === 0) {
       this.head = this.tail = newNode;
     } else {
       this.tail.next = newNode;
       this.tail = newNode;
     }
+    this.size++;
   }
 
   dequeue() {
-    const value = this.head.value;
+    const originalHeadVal = this.head.val;
     this.head = this.head.next;
-    return value;
-  }
-
-  peek() {
-    return this.head.value;
+    this.size--;
+    return originalHeadVal;
   }
 }
 
 function solution(priorities, location) {
-  const queue = new Queue();
-  console.log(queue);
+  const printerQueue = new Queue();
   for (let i = 0; i < priorities.length; i++) {
-    queue.enqueue([priorities[i], i]);
-    console.log(queue);
+    printerQueue.enqueue([priorities[i], i]);
   }
 
-  priorities.sort((a, b) => b - a);
-
+  const printerPriorities = priorities.sort((a, b) => b - a);
   let cnt = 0;
   while (true) {
-    const currentValue = queue.peek();
-    if (currentValue[0] < priorities[cnt]) {
-      queue.enqueue(queue.dequeue());
+    const headVal = printerQueue.peek();
+    if (headVal[0] < printerPriorities[cnt]) {
+      const originalHeadVal = printerQueue.dequeue();
+      printerQueue.enqueue(originalHeadVal);
     } else {
-      const value = queue.dequeue();
+      const originalHeadVal = printerQueue.dequeue();
       cnt++;
-      if (location === value[1]) {
+      if (location === originalHeadVal[1]) {
         return cnt;
       }
     }
