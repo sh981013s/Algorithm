@@ -7,3 +7,7 @@ package.json
 inout.txt
 
 input.txt
+
+.idea/
+
+.vscode/
