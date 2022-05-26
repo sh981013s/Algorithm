@@ -11,7 +11,6 @@
     arrX.push(input[i].split(" ")[0]);
     arrY.push(input[i].split(" ")[1]);
   }
-
   arrX.sort();
   arrY.sort();
 
